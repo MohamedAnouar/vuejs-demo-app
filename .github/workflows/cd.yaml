@@ -24,14 +24,16 @@ jobs:
         ref: main
     - name: modify the image
       run: |
-        git config user.name "github-actions[bot]"
-        git config user.email "github-actions[bot]@users.noreply.github.com"
+        #git config user.name "github-actions[bot]"
+        #git config user.email "github-actions[bot]@users.noreply.github.com"
         cd clusters/dev
         kustomize edit set image medanouar/vuejs-demo-app:latest
         git status
-        git add kustomization.yaml
-        git status
-        git commit -m "Update image tag by Github Actions Job change manifest"
-        git push
+        #git add kustomization.yaml
+        #git status
+        #git commit -m "Update image tag by Github Actions Job change manifest"
+        #git push
 
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
       
