@@ -18,7 +18,7 @@ jobs:
       name: Changing the deployment of git repo
       with:
         repository: ${{ github.repository }}-infra
-        token: ${{ secrets.GIT_TOKEN }}
+        #token: ${{ secrets.GIT_TOKEN }}
         ref: main
     - name: modify the image
       run: |
