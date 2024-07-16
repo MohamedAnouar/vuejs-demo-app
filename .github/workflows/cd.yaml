@@ -33,7 +33,7 @@ jobs:
         
         kustomize edit set image medanouar/vuejs-demo-app:latest
         git status
-        git add kustomization.yaml
+        git add clusters/dev/kustomization.yaml
         git commit -m “Update image tag by Github Actions Job change manifest”
 
       
