@@ -23,8 +23,8 @@ jobs:
         ref: main
     - name: modify the image
       run: |
-        #git config user.email ${{ secrets.email }}
-        #git config user.name ${{ secrets.name }}
+        git config user.email bot@github.com
+        git config user.name bot-github
         echo “Working Directory: $(pwd)”
       
         # Navigate to the specific Helm chart directory
