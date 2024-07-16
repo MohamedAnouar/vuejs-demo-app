@@ -20,7 +20,6 @@ jobs:
       with:
         repository: ${{ github.repository }}-infra
         fetch-depth: 0
-        #token: ${{ secrets.GIT_TOKEN }}
         ref: main
     - name: modify the image
       run: |
@@ -34,6 +33,6 @@ jobs:
         #git commit -m "Update image tag by Github Actions Job change manifest"
         #git push
 
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v6
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v6
       
