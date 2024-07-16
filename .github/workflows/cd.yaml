@@ -35,7 +35,7 @@ jobs:
         git status
         git add kustomization.yaml
         git status
-        git commit -m “Update image tag by Github Actions Job change manifest”
+        git commit -m "Update image tag by Github Actions Job change manifest"
         git push
 
       
