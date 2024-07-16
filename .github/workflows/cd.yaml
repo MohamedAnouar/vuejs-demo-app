@@ -13,14 +13,14 @@ jobs:
     permissions:
       pull-requests: write
       repository-projects: write
-    steps:    
-    — uses: actions/checkout@v4.1.7
+    steps:
+    - uses: actions/checkout@v4.1.7
       name: Changing the deployment of git repo
       with:
         repository: ${{ github.repository }}-infra
         token: ${{ secrets.GIT_TOKEN }}
         ref: main
-    — name: modify the image
+    - name: modify the image
       run: |
         #git config user.email ${{ secrets.email }}
         #git config user.name ${{ secrets.name }}
