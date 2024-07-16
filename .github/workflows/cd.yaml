@@ -1,0 +1,39 @@
+name: cd
+on:
+  push:
+    tags:
+      - 'v*'
+    tags-ignore:
+      - 'v*-rec'
+      - 'v*-dev'
+      - 'v*-*' # generic
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      repository-projects: write
+    steps:    
+    — uses: actions/checkout@v4.1.7
+      name: Changing the deployment of git repo
+      with:
+        repository: ${{ github.repository }}-infra
+        token: ${{ secrets.GIT_TOKEN }}
+        ref: main
+    — name: modify the image
+      run: |
+        #git config user.email ${{ secrets.email }}
+        #git config user.name ${{ secrets.name }}
+        echo “Working Directory: $(pwd)”
+      
+        # Navigate to the specific Helm chart directory
+        ls -l 
+
+        cd clusters/dev
+        
+        kustomize edit set image medanouar/vuejs-demo-app:latest
+        git status
+        git add kustomization.yaml
+        git commit -m “Update image tag by Github Actions Job change manifest”
+
+      
